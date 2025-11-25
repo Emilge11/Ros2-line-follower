@@ -27,6 +27,7 @@ class LineFollowerNode(Node):
         self.current_state = 'forward'
         self.counter = 0
         # Create control timer
+        self.timer = self.create_timer(0.05, self.control_loop)
 
     def sensor_callback(self, msg):
         # Store sensor value when new data arrives
