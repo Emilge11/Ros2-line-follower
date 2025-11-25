@@ -7,6 +7,9 @@ from functools import partial
 class LineFollowerNode(Node):
     def __init__(self):
         # Initialize node
+        self.left_val = 0.0
+        self.mid_val = 0.0
+        self.right_val = 0.0
         super().__init__('line_follower_node')
         # Declare parameters
         self.declare_parameter('MAX_SPEED', 0.0)
@@ -33,10 +36,15 @@ class LineFollowerNode(Node):
         # Create control timer
         self.timer = self.create_timer(0.05, self.control_loop)
 
-    def sensor_callback(self, msg):
+    def sensor_callback(self, msg, name):
         # Store sensor value when new data arrives
-        pass
-
+        if name == 'left':
+            self.left_val = msg.data
+        elif name == 'mid':
+            self.mid_val = msg.data
+        elif name == 'right':
+            self.right_val = msg.data
+            
     def control_loop(self):
         # Get latest sensor readings
         # Apply line-following logic
