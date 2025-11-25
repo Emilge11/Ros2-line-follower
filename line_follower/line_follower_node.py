@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float64
 from geometry_msgs.msg import Twist
+from functools import partial
 
 class LineFollowerNode(Node):
     def __init__(self):
@@ -18,9 +19,12 @@ class LineFollowerNode(Node):
         self.TURN_RIGHT_SPEED = self.get_parameter('TURN_RIGHT_SPEED').value
         self.SENSOR_THRESHOLD = self.get_parameter('SENSOR_THRESHOLD').value
         # Create subscribers
-        self.left_sensor_sub = self.create_subscriber(Float64, '/e_puck/gs0', self.sensor_callback, 1)
-        self.mid_sensor_sub = self.create_subscriber(Float64, '/e_puck/gs1', self.sensor_callback, 1)
-        self.right_sensor_sub = self.create_subscriber(Float64, '/e_puck/gs2', self.sensor_callback, 1)
+        self.left_sensor_sub = self.create_subscriber(
+        Float64, '/e_puck/gs0', partial(self.sensor_callback, name='left'), 1)
+        self.mid_sensor_sub = self.create_subscriber(
+        Float64, '/e_puck/gs1', partial(self.sensor_callback, name='mid'), 1)
+        self.right_sensor_sub = self.create_subscriber(
+        Float64, '/e_puck/gs2', partial(self.sensor_callback, name='right'), 1)
         # Create publisher
         self.vel_pub = self.create_publisher(Twist, '/cmd_vel', 1)
         # Initialize state variables
