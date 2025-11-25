@@ -47,6 +47,9 @@ class LineFollowerNode(Node):
             
     def control_loop(self):
         # Get latest sensor readings
+        left = self.left_val
+        mid = self.mid_val
+        right = self.right_val
         # Apply line-following logic
         # Calculate desired velocities
         # Publish Twist message
