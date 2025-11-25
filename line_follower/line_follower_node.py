@@ -13,6 +13,9 @@ class LineFollowerNode(Node):
         self.TURN_RIGHT_SPEED = self.get_parameter('TURN_RIGHT_SPEED').value
         self.SENSOR_THRESHOLD = self.get_parameter('SENSOR_THRESHOLD').value
         # Create subscribers
+        self.left_sensor_sub = self.create_subscriber(Float64, '/e_puck/gs0', self.sensor_callback, 1)
+        self.mid_sensor_sub = self.create_subscriber(Float64, '/e_puck/gs1', self.sensor_callback, 1)
+        self.right_sensor_sub = self.create_subscriber(Float64, '/e_puck/gs2', self.sensor_callback, 1)
         # Create publisher
         # Initialize state variables
         # Create control timer
