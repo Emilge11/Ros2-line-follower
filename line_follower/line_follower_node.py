@@ -80,3 +80,16 @@ class LineFollowerNode(Node):
             if self.counter >= 5:
                 self.current_state = 'forward'
         # Publish Twist message
+        self.vel_pub.publish(vel_cmd)
+        
+        self.counter += 1
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = LineFollowerNode()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
