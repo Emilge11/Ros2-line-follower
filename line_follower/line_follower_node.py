@@ -19,6 +19,8 @@ class LineFollowerNode(Node):
         # Create publisher
         self.vel_pub = self.create_publisher(Twist, '/cmd_vel', 1)
         # Initialize state variables
+        self.current_state = 'forward'
+        self.counter = 0
         # Create control timer
 
     def sensor_callback(self, msg):
