@@ -51,6 +51,14 @@ class LineFollowerNode(Node):
         mid = self.mid_val
         right = self.right_val
         # Apply line-following logic
+        if left > self.SENSOR_THRESHOLD and right < self.SENSOR_THRESHOLD
+            self.current_state = 'turn_left'
+            self.counter = 0
+        elif right > self.SENSOR_THRESHOLD and left < self.SENSOR_THRESHOLD
+            self.current_state = 'turn_right'
+            self.counter = 0
+        else:
+            self.current_state = 'forward'
         # Calculate desired velocities
         # Publish Twist message
         pass
