@@ -10,7 +10,6 @@
   <depend>rclpy</depend>
   <depend>geometry_msgs</depend>
   <depend>webots_ros2_msgs</depend>
-  <depend>line_follower</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
