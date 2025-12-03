@@ -11,7 +11,6 @@ setup(
         ('share/' + package_name + '/launch', ['launch/line_follower_launch.py']),
         ('share/' + package_name + '/worlds', ['worlds/e-puck_botstudio_with_floor_sensors.wbt']),
         ('share/' + package_name + '/config', ['config/line_follower_params.yaml']),
-        ('share/' + package_name + '/line_follower', ['line_follower/my_robot_driver.py']),
         ('share/' + package_name + '/resource', ['resource/my_robot.urdf']),
         ('share/' + package_name, ['package.xml']),
     ],
