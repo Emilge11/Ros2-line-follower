@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<robot name="My robot">
+    <webots>
+        <device reference="gs0" type="DistanceSensor">
+            <ros>
+                <topicName>/e_puck/gs0</topicName>
+                <alwaysOn>true</alwaysOn>
+            </ros>
+        </device>
+        <device reference="gs1" type="DistanceSensor">
+            <ros>
+                <topicName>/e_puck/gs1</topicName>
+                <alwaysOn>true</alwaysOn>
+            </ros>
+        </device>
+        <device reference="gs2" type="DistanceSensor">
+            <ros>
+                <topicName>/e_puck/gs2</topicName>
+                <alwaysOn>true</alwaysOn>
+            </ros>
+        </device>
+        <plugin type="line_follower.my_robot_driver.MyRobotDriver" />
+    </webots>
+</robot>
