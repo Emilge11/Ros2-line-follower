@@ -53,10 +53,10 @@ class LineFollowerNode(Node):
         
         vel_cmd = Twist()
         # Apply line-following logic
-        if left > self.SENSOR_THRESHOLD and right < self.SENSOR_THRESHOLD
+        if left > self.SENSOR_THRESHOLD and right < self.SENSOR_THRESHOLD:
             self.current_state = 'turn_left'
             self.counter = 0
-        elif right > self.SENSOR_THRESHOLD and left < self.SENSOR_THRESHOLD
+        elif right > self.SENSOR_THRESHOLD and left < self.SENSOR_THRESHOLD:
             self.current_state = 'turn_right'
             self.counter = 0
         else:
